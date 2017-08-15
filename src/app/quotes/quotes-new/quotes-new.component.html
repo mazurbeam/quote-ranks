@@ -1,0 +1,21 @@
+<h1>Add a Quote</h1>
+<form #quoteForm='ngForm' (submit)="formSubmit()">
+  <textarea
+    name="quote"
+    rows="8" cols="80"
+    required minlength='4'
+    [(ngModel)]='quotes.quote'
+    #quoteText = 'ngModel'
+  >
+  </textarea>
+  <label for="author">Author:</label>
+  <input
+    type="text"
+    name="author"
+    required
+    minlength="1"
+    [(ngModel)]="quote.author"
+    #quoteAuthor="ngModel"
+  />
+  <input type="submit" value="Add Quote" [disabled]="!quoteForm.valid">
+</form>
